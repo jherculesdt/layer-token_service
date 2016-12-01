@@ -5,25 +5,19 @@ Bundler.require
 require "sinatra/json"
 require "sinatra/cross_origin"
 
-set :protection, false
-
 class TokenService < Sinatra::Base
   helpers Sinatra::JSON
   register Sinatra::CrossOrigin
 
-  configure do
-    set :allow_origin, :any
-  end
+  enable cross_origin
 
   get '/' do
-    cross_origin
 
-      response = {
-        errors: false
-      }
+    response = {
+      errors: false
+    }
 
-      json response
-    end
+    json response
   end
   
   post '/hello/layer' do
