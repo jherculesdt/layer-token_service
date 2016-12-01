@@ -20,7 +20,7 @@ class TokenService < Sinatra::Base
     }
 
     json response
-  }
+  end
   
   post '/hello/layer' do
     response = {
