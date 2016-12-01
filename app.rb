@@ -3,16 +3,17 @@ require 'bundler'
 Bundler.require
 
 require "sinatra/json"
-
-before do    
-   headers 'Access-Control-Allow-Origin' => '*', 
-            'Access-Control-Allow-Methods' => ['OPTIONS', 'GET', 'POST']  
-end
+require "sinatra/cross_origin"
 
 set :protection, false
 
 class TokenService < Sinatra::Base
   helpers Sinatra::JSON
+  register Sinatra::CrossOrigin
+
+  configure do
+    set :allow_origin, :any
+  end
 
   get '/' do
     response = {
