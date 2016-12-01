@@ -16,11 +16,14 @@ class TokenService < Sinatra::Base
   end
 
   get '/' do
-    response = {
-      errors: false
-    }
+    cross_origin
 
-    json response
+      response = {
+        errors: false
+      }
+
+      json response
+    end
   end
   
   post '/hello/layer' do
