@@ -12,6 +12,8 @@ class TokenService < Sinatra::Base
       token: Layer::IdentityToken.new(params[:user_id], params[:nonce])
     }
 
+    response['Access-Controll-Allow-Origin'] = '*';
+
     json response
   end
 end
