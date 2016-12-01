@@ -5,3 +5,4 @@ gem 'sinatra-contrib'
 gem 'layer-identity_token'
 
 gem 'puma'
+gem 'sinatra-cross_origin'
