@@ -26,6 +26,7 @@ class TokenService < Sinatra::Base
   post '/hello/layer' do
     cross_origin
 
+    puts params
     response = {
       token: Layer::IdentityToken.new(params[:user_id], params[:nonce]),
       params: params[:user_id]
