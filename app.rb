@@ -28,7 +28,7 @@ class TokenService < Sinatra::Base
 
     response = {
       token: Layer::IdentityToken.new(params[:user_id], params[:nonce]),
-      params: params
+      params: params[:user_id]
     }
 
     json response
