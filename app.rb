@@ -16,16 +16,15 @@ class TokenService < Sinatra::Base
   get '/' do
     cross_origin
 
-      response = {
-        errors: false
-      }
+    response = {
+      errors: false
+    }
 
-      json response
-    end
+    json response
   end
   
   post '/hello/layer' do
-    cross_origin
+    cross_origin allow_methods => [:post]
 
     response = {
       token: Layer::IdentityToken.new(params[:user_id], params[:nonce]),
