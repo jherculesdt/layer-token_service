@@ -9,9 +9,12 @@ class TokenService < Sinatra::Base
   helpers Sinatra::JSON
   register Sinatra::CrossOrigin
 
-  enable cross_origin
+  configure do
+    enable :cross_origin
+  end
 
   get '/' do
+    cross_origin
 
     response = {
       errors: false
